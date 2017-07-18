@@ -1,0 +1,27 @@
+{
+    "name": "hindent",
+    "displayName": "HIndent",
+    "description": "HIndent Formatter",
+    "version": "0.0.1",
+    "publisher": "vapourismo",
+    "engines": {
+        "vscode": "^1.14.0"
+    },
+    "categories": [
+        "Formatters"
+    ],
+    "main": "./out/src/extension",
+    "activationEvents": [
+        "onLanguage:haskell"
+    ],
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "@types/node": "^6.0.40"
+    }
+}
