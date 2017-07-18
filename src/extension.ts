@@ -20,8 +20,19 @@ class HIndentFormatter implements vscode.DocumentFormattingEditProvider {
 			}
 		)
 
-		if (proc.status !== 0)
+		if (proc.error != null) {
+			this.outChan.appendLine(
+				'Failed to invoke "hindent": ' + proc.error.message
+			)
 			return null
+		}
+
+		if (proc.status !== 0) {
+			this.outChan.appendLine(
+				'Failed to invoke "hindent": Exited with status ' + proc.status.toString()
+			)
+			return null
+		}
 
 		return proc.stdout.toString()
 	}
